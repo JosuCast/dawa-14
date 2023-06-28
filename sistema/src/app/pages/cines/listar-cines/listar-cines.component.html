@@ -1,0 +1,69 @@
+<app-navbar></app-navbar>
+<section class="content">
+<div class="container-fluid">
+    <div class="row m-t-sm">
+        <div class="col-md-15">
+            <div class="panel">
+                <div class="panel-body">
+                    <div class="col-md-12 col-sm-12" id="list_alumnos">
+                        <div class="panel panel-filled">
+                            <div class="panel-body">
+
+                                <div class="row">
+                                    <div class="col-sm-10">
+                                        <h5 class="m-t-xs">Cines Registrados</h5>
+                                    </div>
+                                    <div class="col-sm-2 text-right">
+                                        <div class="panel-body buttons-margin">
+                                            <a id="btnNuevo" class="btn btn-w-md btn-info"
+                                                routerLink="/crear-cines">Nuevo Cine</a>
+                                        </div> 
+                                        <div class="panel-body buttons-margin">
+                                            <a href=""></a>
+                                            <a (click)="generarPDF()">Ver reporte</a>&nbsp;&nbsp;
+                                            
+                                            
+                                            
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="table-responsive">
+                                    <table *ngIf="listCines.length > 0" class="table table-hover table-striped">
+                                        <thead>
+                                            <tr>
+                                                <th>Nombre</th>
+                                                <th>Dirección</th>
+                                                <th>Telefono</th>
+                                                <th>Precio Dia Espectador</th>
+                                                <th>Precio Dia Jubilado</th>
+                                                <th>Precio Dia Festivo</th>
+                                                <th>Precio Carnet de Estudiante</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="datos">
+                                            <tr *ngFor="let cine of listCines">
+                                                <td>{{ cine.nombre }}</td>
+                                                <td>{{ cine.direccion }}</td>
+                                                <td>{{ cine.telefono }}</td>
+                                                <td>S/ {{ cine.precios.diaEspectador }}</td>
+                                                <td>S/ {{ cine.precios.diaJubilado }}</td>
+                                                <td>S/ {{ cine.precios.festivos }}</td>      
+                                                <td>S/ {{ cine.precios.carnetEstudiante }}</td>                          
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <br>
+                                <div class="text-right font-bold c-white y-value">
+                                    <div id="val_a">Total Peliculas: {{elementos}}</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</section>
